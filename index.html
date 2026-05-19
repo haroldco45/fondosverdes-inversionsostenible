@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>FondosVerde — Inversión Sostenible</title>
+<meta name="description" content="Aprende sobre fondos de inversión sostenible: biofertilizantes, energía renovable y economía circular. Tu guía financiera verde.">
+<meta name="theme-color" content="#0a1628">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="FondosVerde — Inversión Sostenible">
+<meta property="og:description" content="Fondos de inversión en biofertilizantes, energía renovable y economía circular. Aprende a invertir con propósito.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="icons/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --verde: #2de370;
+    --verde-oscuro: #1a8f45;
+    --azul: #0a1628;
+    --azul-med: #0f2547;
+    --azul-claro: #1a3a6e;
+    --oro: #d4a847;
+    --oro-claro: #f0c96b;
+    --blanco: #f0f4ef;
+    --gris: #8a9bb0;
+    --card-bg: rgba(15, 37, 71, 0.7);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--azul);
+    color: var(--blanco);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* FONDO ANIMADO */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(45, 227, 112, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 90%, rgba(212, 168, 71, 0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 100% at 50% 50%, rgba(10, 22, 40, 1) 40%, rgba(26, 58, 110, 0.3) 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .app-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 48px 24px 32px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(45, 227, 112, 0.12);
+    border: 1px solid rgba(45, 227, 112, 0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--verde);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .hero-badge span { font-size: 16px; }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    animation: fadeDown 0.7s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--verde);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--gris);
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto 32px;
+    animation: fadeDown 0.7s ease both;
+    animation-delay: 0.2s;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    animation: fadeDown 0.7s ease both;
+    animation-delay: 0.3s;
+  }
+
+  .stat-pill {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 16px 8px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+  }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--oro-claro);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    animation: fadeDown 0.7s ease both;
+    animation-delay: 0.4s;
+  }
+
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    flex-shrink: 0;
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gris);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+  }
+
+  .tab-btn.active {
+    background: var(--verde);
+    border-color: var(--verde);
+    color: var(--azul);
+  }
+
+  /* CONTENIDO TABS */
+  .tab-content { display: none; padding: 0 24px; }
+  .tab-content.active { display: block; }
+
+  /* CARDS FONDOS */
+  .fondo-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .fondo-card:hover, .fondo-card:active {
+    transform: translateY(-3px);
+    border-color: rgba(45, 227, 112, 0.3);
+  }
+
+  .fondo-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .fondo-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .fondo-icon.verde { background: rgba(45, 227, 112, 0.15); }
+  .fondo-icon.oro { background: rgba(212, 168, 71, 0.15); }
+  .fondo-icon.azul { background: rgba(74, 144, 226, 0.15); }
+  .fondo-icon.naranja { background: rgba(255, 140, 50, 0.15); }
+
+  .fondo-rentabilidad {
+    text-align: right;
+  }
+
+  .rent-num {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--verde);
+  }
+
+  .rent-label {
+    font-size: 10px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .fondo-nombre {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .fondo-desc {
+    font-size: 14px;
+    color: var(--gris);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .fondo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .tag.verde { background: rgba(45, 227, 112, 0.12); color: var(--verde); border: 1px solid rgba(45, 227, 112, 0.2); }
+  .tag.oro { background: rgba(212, 168, 71, 0.12); color: var(--oro-claro); border: 1px solid rgba(212, 168, 71, 0.2); }
+  .tag.azul { background: rgba(74, 144, 226, 0.12); color: #7ab8f5; border: 1px solid rgba(74, 144, 226, 0.2); }
+
+  .fondo-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gris);
+    margin-bottom: 6px;
+  }
+
+  .fondo-bar-bg {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .fondo-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--verde-oscuro), var(--verde));
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* EXPANDIR CARD */
+  .expand-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--verde);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 12px;
+    padding: 0;
+  }
+
+  .expand-content {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .expand-content.open { display: block; }
+
+  .expand-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+
+  .expand-row:last-child { border-bottom: none; }
+  .expand-key { color: var(--gris); }
+  .expand-val { font-weight: 500; }
+  .expand-val.verde { color: var(--verde); }
+  .expand-val.oro { color: var(--oro-claro); }
+
+  /* SECCION APRENDE */
+  .aprende-titulo {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .aprende-sub {
+    font-size: 14px;
+    color: var(--gris);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .concepto-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 12px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .concepto-ico {
+    font-size: 32px;
+    flex-shrink: 0;
+    width: 44px;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .concepto-titulo {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .concepto-texto {
+    font-size: 13px;
+    color: var(--gris);
+    line-height: 1.7;
+  }
+
+  /* GLOSARIO */
+  .glosario-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .glosario-item:hover { border-color: rgba(212, 168, 71, 0.3); }
+
+  .glosario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .glosario-term {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--oro-claro);
+  }
+
+  .glosario-toggle {
+    font-size: 18px;
+    color: var(--gris);
+    transition: transform 0.3s;
+  }
+
+  .glosario-def {
+    display: none;
+    font-size: 13px;
+    color: var(--gris);
+    line-height: 1.7;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .glosario-def.open { display: block; }
+  .glosario-item.open .glosario-toggle { transform: rotate(45deg); }
+
+  /* QUIZ */
+  .quiz-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(45, 227, 112, 0.15);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(12px);
+  }
+
+  .quiz-pregunta {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .quiz-opciones { display: flex; flex-direction: column; gap: 10px; }
+
+  .quiz-opcion {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    color: var(--blanco);
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+  }
+
+  .quiz-opcion:hover:not(:disabled) {
+    background: rgba(45, 227, 112, 0.1);
+    border-color: rgba(45, 227, 112, 0.3);
+  }
+
+  .quiz-opcion.correcta {
+    background: rgba(45, 227, 112, 0.15);
+    border-color: var(--verde);
+    color: var(--verde);
+  }
+
+  .quiz-opcion.incorrecta {
+    background: rgba(255, 80, 80, 0.1);
+    border-color: rgba(255, 80, 80, 0.4);
+    color: #ff8080;
+  }
+
+  .quiz-feedback {
+    display: none;
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .quiz-feedback.correcto {
+    display: block;
+    background: rgba(45, 227, 112, 0.1);
+    border: 1px solid rgba(45, 227, 112, 0.25);
+    color: var(--verde);
+  }
+
+  .quiz-feedback.incorrecto {
+    display: block;
+    background: rgba(255, 80, 80, 0.08);
+    border: 1px solid rgba(255, 80, 80, 0.2);
+    color: #ff8080;
+  }
+
+  .quiz-score {
+    text-align: center;
+    padding: 24px;
+    background: var(--card-bg);
+    border-radius: 24px;
+    border: 1px solid rgba(45, 227, 112, 0.2);
+    display: none;
+  }
+
+  .quiz-score.visible { display: block; }
+
+  .score-num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    color: var(--verde);
+    font-weight: 700;
+  }
+
+  /* CALCULADORA */
+  .calc-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 71, 0.2);
+    border-radius: 24px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+  }
+
+  .calc-titulo {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .calc-grupo { margin-bottom: 20px; }
+
+  .calc-label {
+    font-size: 12px;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .calc-input {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 16px;
+    color: var(--blanco);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .calc-input:focus { border-color: var(--oro); }
+
+  .calc-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 4px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.1);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--oro);
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(212, 168, 71, 0.5);
+  }
+
+  .slider-val {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gris);
+    margin-top: 6px;
+  }
+
+  .calc-resultado {
+    background: rgba(45, 227, 112, 0.08);
+    border: 1px solid rgba(45, 227, 112, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .calc-res-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .calc-res-row:last-child { border-bottom: none; }
+  .calc-res-key { color: var(--gris); }
+  .calc-res-val { font-weight: 600; }
+  .calc-res-val.grande { font-family: 'Fraunces', serif; font-size: 22px; color: var(--verde); }
+
+  /* BTN PRINCIPAL */
+  .btn-primary {
+    width: 100%;
+    background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--azul);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: opacity 0.2s, transform 0.2s;
+    margin-top: 16px;
+  }
+
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 11px;
+    color: rgba(138, 155, 176, 0.5);
+    letter-spacing: 0.03em;
+    line-height: 1.8;
+  }
+
+  .footer a {
+    color: var(--verde);
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  /* INSTALL BANNER */
+  .install-banner {
+    display: none;
+    margin: 0 24px 20px;
+    background: linear-gradient(135deg, rgba(212, 168, 71, 0.1), rgba(45, 227, 112, 0.08));
+    border: 1px solid rgba(212, 168, 71, 0.25);
+    border-radius: 18px;
+    padding: 16px 20px;
+    animation: fadeDown 0.5s ease both;
+  }
+
+  .install-banner.visible { display: flex; gap: 12px; align-items: center; }
+
+  .install-txt { flex: 1; }
+  .install-txt strong { font-size: 14px; display: block; margin-bottom: 2px; }
+  .install-txt span { font-size: 12px; color: var(--gris); }
+
+  .install-btn {
+    background: var(--oro);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--azul);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ANIMACIONES */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* DOTS DECORATIVOS */
+  .dot-grid {
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gris);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .next-q-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 20px;
+    color: var(--blanco);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 12px;
+    width: 100%;
+    display: none;
+    transition: background 0.2s;
+  }
+
+  .next-q-btn:hover { background: rgba(255,255,255,0.1); }
+  .next-q-btn.visible { display: block; }
+</style>
+</head>
+<body>
+
+<div class="dot-grid"></div>
+
+<div class="app-wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><span>🌱</span> Inversión con Propósito</div>
+    <h1>Fondos<br><em>Sostenibles</em></h1>
+    <p class="hero-sub">Aprende a invertir en biofertilizantes, energía renovable y economía circular. El futuro del dinero es verde.</p>
+    <div class="hero-stats">
+      <div class="stat-pill">
+        <span class="stat-num">$3T</span>
+        <div class="stat-label">mercado global</div>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-num">12%</span>
+        <div class="stat-label">rentabilidad media</div>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-num">+40%</span>
+        <div class="stat-label">crecimiento anual</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTALL BANNER -->
+  <div class="install-banner" id="installBanner">
+    <div style="font-size:28px">📲</div>
+    <div class="install-txt">
+      <strong>Instalar App</strong>
+      <span>Accede sin internet, siempre a la mano</span>
+    </div>
+    <button class="install-btn" id="installBtn">Instalar</button>
+  </div>
+
+  <!-- NAV TABS -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('fondos', this)">💼 Fondos</button>
+    <button class="tab-btn" onclick="showTab('aprende', this)">📚 Aprende</button>
+    <button class="tab-btn" onclick="showTab('glosario', this)">📖 Glosario</button>
+    <button class="tab-btn" onclick="showTab('quiz', this)">🧠 Quiz</button>
+    <button class="tab-btn" onclick="showTab('calculadora', this)">🧮 Simular</button>
+  </div>
+
+  <!-- TAB: FONDOS -->
+  <div class="tab-content active" id="tab-fondos">
+
+    <div class="section-label">Fondos destacados</div>
+
+    <!-- BIOFERTILIZANTES -->
+    <div class="fondo-card">
+      <div class="fondo-card-header">
+        <div class="fondo-icon verde">🌿</div>
+        <div class="fondo-rentabilidad">
+          <div class="rent-num">14.2%</div>
+          <div class="rent-label">Rentabilidad E.A.</div>
+        </div>
+      </div>
+      <div class="fondo-nombre">Fondo Biofertilizantes</div>
+      <div class="fondo-desc">Invierte en la producción y distribución de insumos biológicos que reemplazan fertilizantes químicos convencionales, reduciendo costos agrícolas y contaminación del suelo.</div>
+      <div class="fondo-tags">
+        <span class="tag verde">🌱 Agricultura</span>
+        <span class="tag oro">Bajo riesgo</span>
+        <span class="tag azul">ESG</span>
+      </div>
+      <div class="fondo-bar-label">
+        <span>Riesgo</span>
+        <span>Bajo — 30%</span>
+      </div>
+      <div class="fondo-bar-bg">
+        <div class="fondo-bar-fill" style="width: 30%"></div>
+      </div>
+      <button class="expand-btn" onclick="toggleExpand(this)">
+        Ver detalles <span>▾</span>
+      </button>
+      <div class="expand-content">
+        <div class="expand-row"><span class="expand-key">Monto mínimo</span><span class="expand-val oro">$500.000 COP</span></div>
+        <div class="expand-row"><span class="expand-key">Plazo mínimo</span><span class="expand-val">12 meses</span></div>
+        <div class="expand-row"><span class="expand-key">Liquidez</span><span class="expand-val verde">Trimestral</span></div>
+        <div class="expand-row"><span class="expand-key">Regulado por</span><span class="expand-val">SFC Colombia</span></div>
+        <div class="expand-row"><span class="expand-key">Impacto</span><span class="expand-val verde">↓ 60% uso de químicos</span></div>
+      </div>
+    </div>
+
+    <!-- ENERGÍA RENOVABLE -->
+    <div class="fondo-card">
+      <div class="fondo-card-header">
+        <div class="fondo-icon oro">☀️</div>
+        <div class="fondo-rentabilidad">
+          <div class="rent-num">11.8%</div>
+          <div class="rent-label">Rentabilidad E.A.</div>
+        </div>
+      </div>
+      <div class="fondo-nombre">Fondo Energía Renovable</div>
+      <div class="fondo-desc">Portafolio diversificado en proyectos solares y eólicos en Colombia y Latinoamérica. Alternativa a la energía de fuentes convencionales como carbón y gas natural.</div>
+      <div class="fondo-tags">
+        <span class="tag oro">⚡ Energía</span>
+        <span class="tag verde">Medio riesgo</span>
+        <span class="tag azul">Infraestructura</span>
+      </div>
+      <div class="fondo-bar-label">
+        <span>Riesgo</span>
+        <span>Medio — 55%</span>
+      </div>
+      <div class="fondo-bar-bg">
+        <div class="fondo-bar-fill" style="width: 55%"></div>
+      </div>
+      <button class="expand-btn" onclick="toggleExpand(this)">
+        Ver detalles <span>▾</span>
+      </button>
+      <div class="expand-content">
+        <div class="expand-row"><span class="expand-key">Monto mínimo</span><span class="expand-val oro">$1.000.000 COP</span></div>
+        <div class="expand-row"><span class="expand-key">Plazo mínimo</span><span class="expand-val">24 meses</span></div>
+        <div class="expand-row"><span class="expand-key">Liquidez</span><span class="expand-val verde">Semestral</span></div>
+        <div class="expand-row"><span class="expand-key">Regulado por</span><span class="expand-val">SFC + UPME</span></div>
+        <div class="expand-row"><span class="expand-key">Impacto</span><span class="expand-val verde">↓ 45.000 ton CO₂/año</span></div>
+      </div>
+    </div>
+
+    <!-- ECONOMÍA CIRCULAR -->
+    <div class="fondo-card">
+      <div class="fondo-card-header">
+        <div class="fondo-icon azul">♻️</div>
+        <div class="fondo-rentabilidad">
+          <div class="rent-num">9.5%</div>
+          <div class="rent-label">Rentabilidad E.A.</div>
+        </div>
+      </div>
+      <div class="fondo-nombre">Fondo Economía Circular</div>
+      <div class="fondo-desc">Invierte en empresas que transforman residuos en recursos productivos: compostaje, reciclaje avanzado, reutilización industrial y tratamiento de aguas residuales.</div>
+      <div class="fondo-tags">
+        <span class="tag azul">♻️ Residuos</span>
+        <span class="tag verde">Bajo riesgo</span>
+        <span class="tag oro">Bonos verdes</span>
+      </div>
+      <div class="fondo-bar-label">
+        <span>Riesgo</span>
+        <span>Bajo — 25%</span>
+      </div>
+      <div class="fondo-bar-bg">
+        <div class="fondo-bar-fill" style="width: 25%"></div>
+      </div>
+      <button class="expand-btn" onclick="toggleExpand(this)">
+        Ver detalles <span>▾</span>
+      </button>
+      <div class="expand-content">
+        <div class="expand-row"><span class="expand-key">Monto mínimo</span><span class="expand-val oro">$300.000 COP</span></div>
+        <div class="expand-row"><span class="expand-key">Plazo mínimo</span><span class="expand-val">6 meses</span></div>
+        <div class="expand-row"><span class="expand-key">Liquidez</span><span class="expand-val verde">Mensual</span></div>
+        <div class="expand-row"><span class="expand-key">Regulado por</span><span class="expand-val">SFC Colombia</span></div>
+        <div class="expand-row"><span class="expand-key">Impacto</span><span class="expand-val verde">↑ 80% tasa de reciclaje</span></div>
+      </div>
+    </div>
+
+    <!-- AGRO SOSTENIBLE -->
+    <div class="fondo-card">
+      <div class="fondo-card-header">
+        <div class="fondo-icon naranja">🌾</div>
+        <div class="fondo-rentabilidad">
+          <div class="rent-num">16.3%</div>
+          <div class="rent-label">Rentabilidad E.A.</div>
+        </div>
+      </div>
+      <div class="fondo-nombre">Fondo Agro Sostenible</div>
+      <div class="fondo-desc">Financia proyectos de agricultura regenerativa, silvopastoril y cultivos orgánicos certificados. Altos rendimientos respaldados por activos reales en tierra colombiana.</div>
+      <div class="fondo-tags">
+        <span class="tag verde">🌾 Ganadería</span>
+        <span class="tag oro">Alto potencial</span>
+        <span class="tag azul">Tierra real</span>
+      </div>
+      <div class="fondo-bar-label">
+        <span>Riesgo</span>
+        <span>Medio-alto — 65%</span>
+      </div>
+      <div class="fondo-bar-bg">
+        <div class="fondo-bar-fill" style="width: 65%; background: linear-gradient(90deg, #8f5a1a, var(--oro));"></div>
+      </div>
+      <button class="expand-btn" onclick="toggleExpand(this)">
+        Ver detalles <span>▾</span>
+      </button>
+      <div class="expand-content">
+        <div class="expand-row"><span class="expand-key">Monto mínimo</span><span class="expand-val oro">$2.000.000 COP</span></div>
+        <div class="expand-row"><span class="expand-key">Plazo mínimo</span><span class="expand-val">36 meses</span></div>
+        <div class="expand-row"><span class="expand-key">Liquidez</span><span class="expand-val oro">Anual</span></div>
+        <div class="expand-row"><span class="expand-key">Respaldo</span><span class="expand-val verde">Activos reales</span></div>
+        <div class="expand-row"><span class="expand-key">Impacto</span><span class="expand-val verde">↑ Empleo rural local</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TAB: APRENDE -->
+  <div class="tab-content" id="tab-aprende">
+
+    <div class="aprende-titulo">¿Qué es un fondo sostenible?</div>
+    <p class="aprende-sub">Los fondos de inversión sostenible canalizan capital hacia proyectos con impacto ambiental o social positivo, sin sacrificar rentabilidad financiera.</p>
+
+    <div class="concepto-card">
+      <div class="concepto-ico">🌿</div>
+      <div>
+        <div class="concepto-titulo">Biofertilizantes</div>
+        <div class="concepto-texto">Son microorganismos vivos (bacterias, hongos, algas) que mejoran la fertilidad del suelo de forma natural. Reemplazan los fertilizantes químicos convencionales que contaminan ríos y degradan la tierra. El mercado global supera los $3.000 millones de dólares y crece al 12% anual.</div>
+      </div>
+    </div>
+
+    <div class="concepto-card">
+      <div class="concepto-ico">♻️</div>
+      <div>
+        <div class="concepto-titulo">Economía Circular</div>
+        <div class="concepto-texto">Modelo económico que elimina el concepto de "basura": todo residuo es materia prima para otro proceso. Los fondos circulares invierten en reciclaje, compostaje, biogas, re-manufactura y servicios de alquiler en vez de venta de productos. Genera empleos locales y reduce la extracción de recursos naturales.</div>
+      </div>
+    </div>
+
+    <div class="concepto-card">
+      <div class="concepto-ico">☀️</div>
+      <div>
+        <div class="concepto-titulo">Energía Renovable vs Convencional</div>
+        <div class="concepto-texto">Las fuentes convencionales (carbón, gas, petróleo) son finitas y contaminantes. Las renovables (solar, eólica, hidroeléctrica) son inagotables y cada vez más baratas. En Colombia, la energía solar tiene enorme potencial dado su ubicación ecuatorial. Invertir en renovables es apostar al futuro energético del país.</div>
+      </div>
+    </div>
+
+    <div class="concepto-card">
+      <div class="concepto-ico">📊</div>
+      <div>
+        <div class="concepto-titulo">Criterios ESG</div>
+        <div class="concepto-texto">ESG son las siglas de Environmental (ambiental), Social y Governance (gobernanza). Son los tres pilares que miden el impacto no financiero de una inversión. Los fondos con altas calificaciones ESG tienden a ser más estables y atractivos para inversionistas institucionales globales, elevando su valorización a largo plazo.</div>
+      </div>
+    </div>
+
+    <div class="concepto-card">
+      <div class="concepto-ico">⚖️</div>
+      <div>
+        <div class="concepto-titulo">Riesgo vs Rentabilidad</div>
+        <div class="concepto-texto">En finanzas, mayor rentabilidad potencial implica mayor riesgo. Los fondos de biofertilizantes y economía circular son de bajo riesgo con rentabilidades estables (8-14% EA). Los fondos agro y de energía ofrecen mayor rentabilidad pero con más volatilidad. Diversificar entre varios fondos reduce el riesgo total.</div>
+      </div>
+    </div>
+
+    <div class="concepto-card">
+      <div class="concepto-ico">🇨🇴</div>
+      <div>
+        <div class="concepto-titulo">Marco legal en Colombia</div>
+        <div class="concepto-texto">Los fondos de inversión en Colombia son regulados por la Superintendencia Financiera de Colombia (SFC). La Ley 1819 de 2016 y los decretos de finanzas verdes incentivan la inversión sostenible con beneficios tributarios. Siempre verifica que el fondo tenga vigilancia de la SFC antes de invertir.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TAB: GLOSARIO -->
+  <div class="tab-content" id="tab-glosario">
+
+    <div class="section-label">Términos clave</div>
+
+    <div id="glosario-lista"></div>
+  </div>
+
+  <!-- TAB: QUIZ -->
+  <div class="tab-content" id="tab-quiz">
+
+    <div class="section-label">Pon a prueba tu conocimiento</div>
+
+    <div id="quiz-container"></div>
+    <div class="quiz-score" id="quiz-score">
+      <div style="font-size:48px;margin-bottom:12px">🏆</div>
+      <div class="score-num" id="score-num">0/5</div>
+      <div style="font-size:14px;color:var(--gris);margin:8px 0 20px">¡Excelente! Estás listo para invertir con propósito.</div>
+      <button class="btn-primary" onclick="reiniciarQuiz()">🔄 Intentar de nuevo</button>
+    </div>
+
+  </div>
+
+  <!-- TAB: CALCULADORA -->
+  <div class="tab-content" id="tab-calculadora">
+
+    <div class="section-label">Simulador de inversión</div>
+
+    <div class="calc-card">
+      <div class="calc-titulo">¿Cuánto podría crecer tu dinero? 💰</div>
+
+      <div class="calc-grupo">
+        <label class="calc-label">Capital inicial (COP $)</label>
+        <input type="number" class="calc-input" id="capital" value="1000000" min="100000" step="100000" oninput="calcular()">
+      </div>
+
+      <div class="calc-grupo">
+        <label class="calc-label">Rentabilidad anual: <strong id="rent-display" style="color:var(--verde)">12%</strong></label>
+        <input type="range" class="calc-slider" id="rentabilidad" min="5" max="20" value="12" oninput="updateRent()">
+        <div class="slider-val"><span>5%</span><span>20%</span></div>
+      </div>
+
+      <div class="calc-grupo">
+        <label class="calc-label">Plazo de inversión: <strong id="plazo-display" style="color:var(--oro-claro)">3 años</strong></label>
+        <input type="range" class="calc-slider" id="plazo" min="1" max="10" value="3" oninput="updatePlazo()" style="--thumb-color:var(--oro)">
+        <div class="slider-val"><span>1 año</span><span>10 años</span></div>
+      </div>
+
+      <div class="calc-grupo">
+        <label class="calc-label">Aporte mensual adicional (opcional)</label>
+        <input type="number" class="calc-input" id="aporte" value="0" min="0" step="50000" oninput="calcular()">
+      </div>
+
+      <div class="calc-resultado">
+        <div class="calc-res-row">
+          <span class="calc-res-key">Capital invertido</span>
+          <span class="calc-res-val" id="res-capital">$1.000.000</span>
+        </div>
+        <div class="calc-res-row">
+          <span class="calc-res-key">Aportes mensuales acumulados</span>
+          <span class="calc-res-val" id="res-aportes">$0</span>
+        </div>
+        <div class="calc-res-row">
+          <span class="calc-res-key">Intereses generados</span>
+          <span class="calc-res-val verde" id="res-intereses">$0</span>
+        </div>
+        <div class="calc-res-row">
+          <span class="calc-res-key">💰 Total final</span>
+          <span class="calc-res-val grande" id="res-total">$0</span>
+        </div>
+      </div>
+
+      <p style="font-size:11px;color:var(--gris);margin-top:12px;text-align:center;line-height:1.6">
+        ⚠️ Simulación educativa. Las rentabilidades reales pueden variar. Consulta con un asesor financiero certificado antes de invertir.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div style="margin-bottom:8px">📊 FondosVerde — Educación Financiera Sostenible</div>
+    <div>Desarrollada por <strong>Vibras Positivas HM</strong> — Derechos de Autor Reservados</div>
+    <div style="margin-top:4px">Caucasia, Antioquia · Colombia 🇨🇴</div>
+  </div>
+
+</div>
+
+<script>
+// =====================
+// GLOSARIO DATA
+// =====================
+const glosario = [
+  { term: "Fondo de inversión", def: "Vehículo financiero que agrupa el capital de múltiples inversionistas para invertirlo en activos diversificados. Un gestor profesional toma las decisiones de inversión y los rendimientos se distribuyen proporcionalmente entre los participantes." },
+  { term: "Rentabilidad E.A.", def: "Efectiva Anual. Expresa el rendimiento de una inversión en términos anuales, considerando el efecto del interés compuesto. Permite comparar productos con diferentes plazos o formas de pago de intereses." },
+  { term: "Biofertilizante", def: "Producto formulado con microorganismos vivos (bacterias fijadoras de nitrógeno, hongos micorrízicos, etc.) que al aplicarse en suelos o plantas, aumentan la disponibilidad de nutrientes y mejoran la fertilidad sin usar químicos sintéticos." },
+  { term: "Economía circular", def: "Modelo productivo que busca cerrar los ciclos de vida de materiales y energía, eliminando el residuo como concepto. Todo lo que sale de un proceso sirve como insumo para otro, imitando los ciclos naturales." },
+  { term: "ESG", def: "Environmental, Social & Governance. Conjunto de criterios no financieros para evaluar el impacto y la sostenibilidad de una empresa o fondo. Los inversionistas institucionales globales los usan para filtrar activos responsables." },
+  { term: "Diversificación", def: "Estrategia de invertir en diferentes activos o sectores para reducir el riesgo total. Si un activo baja, los otros pueden compensar. Se dice que 'no se deben poner todos los huevos en la misma canasta'." },
+  { term: "Riesgo de inversión", def: "Probabilidad de obtener un retorno diferente al esperado, incluyendo la posibilidad de perder parte del capital. Se clasifica en: riesgo de mercado, liquidez, crédito, operativo y cambiario." },
+  { term: "Interés compuesto", def: "Fenómeno financiero donde los intereses generados se suman al capital y a su vez generan nuevos intereses. Es la base del crecimiento exponencial del patrimonio y fue llamado por Einstein 'la octava maravilla del mundo'." },
+  { term: "Liquidez", def: "Facilidad con la que una inversión puede convertirse en efectivo sin perder valor significativo. Un CDT tiene baja liquidez (hay penalidad por retiro anticipado), mientras que las acciones de alta borda tienen mayor liquidez." },
+  { term: "SFC", def: "Superintendencia Financiera de Colombia. Entidad gubernamental que regula, inspecciona y vigila a las entidades del sistema financiero colombiano. Verificar que un fondo esté vigilado por la SFC es el primer paso para invertir con seguridad." },
+  { term: "Bono verde", def: "Instrumento de deuda cuya financiación se destina exclusivamente a proyectos con beneficios ambientales: energías limpias, eficiencia energética, transporte sostenible, gestión del agua o biodiversidad." },
+  { term: "Tasa de retorno", def: "Ganancia o pérdida generada por una inversión expresada como porcentaje del capital invertido en un período determinado. Se calcula como: (Valor final - Valor inicial) / Valor inicial × 100." },
+];
+
+function renderGlosario() {
+  const lista = document.getElementById('glosario-lista');
+  lista.innerHTML = glosario.map((item, i) => `
+    <div class="glosario-item" onclick="toggleGlosario(this)" style="animation-delay:${i * 0.05}s">
+      <div class="glosario-header">
+        <div class="glosario-term">${item.term}</div>
+        <div class="glosario-toggle">+</div>
+      </div>
+      <div class="glosario-def">${item.def}</div>
+    </div>
+  `).join('');
+}
+
+function toggleGlosario(el) {
+  const def = el.querySelector('.glosario-def');
+  el.classList.toggle('open');
+  def.classList.toggle('open');
+}
+
+// =====================
+// QUIZ DATA
+// =====================
+const quizData = [
+  {
+    pregunta: "¿Qué son los biofertilizantes?",
+    opciones: ["Fertilizantes químicos sintéticos", "Microorganismos que mejoran el suelo naturalmente", "Pesticidas orgánicos", "Herbicidas biodegradables"],
+    correcta: 1,
+    feedback: "✅ Correcto. Los biofertilizantes son microorganismos vivos que al aplicarse en suelos o plantas mejoran la disponibilidad de nutrientes de forma natural, sin contaminantes químicos."
+  },
+  {
+    pregunta: "¿Qué significa el criterio 'E' en ESG?",
+    opciones: ["Económico", "Empresarial", "Ambiental", "Estadístico"],
+    correcta: 2,
+    feedback: "✅ Correcto. ESG = Environmental (Ambiental), Social y Governance (Gobernanza). Son los tres pilares de la inversión responsable."
+  },
+  {
+    pregunta: "En economía circular, ¿qué pasa con los residuos?",
+    opciones: ["Se exportan a otros países", "Se convierten en materia prima para otros procesos", "Se queman para generar energía únicamente", "No existen en este modelo"],
+    correcta: 1,
+    feedback: "✅ Correcto. La economía circular cierra los ciclos: todo residuo es el insumo de otro proceso productivo, eliminando el concepto tradicional de 'basura'."
+  },
+  {
+    pregunta: "¿Cuál es la principal diferencia entre energía renovable y convencional?",
+    opciones: ["La energía renovable es más cara siempre", "La convencional no contamina", "Las renovables son fuentes inagotables y limpias", "Solo la nuclear es renovable"],
+    correcta: 2,
+    feedback: "✅ Correcto. Las fuentes renovables (solar, eólica, hídrica) son inagotables y no emiten gases de efecto invernadero en su operación, a diferencia del carbón, gas y petróleo."
+  },
+  {
+    pregunta: "¿Qué entidad regula los fondos de inversión en Colombia?",
+    opciones: ["DIAN", "Banco de la República", "Superintendencia Financiera de Colombia (SFC)", "Cámara de Comercio"],
+    correcta: 2,
+    feedback: "✅ Correcto. La SFC regula, inspecciona y vigila las entidades del sistema financiero. Siempre verifica que el fondo tenga vigilancia de la SFC antes de invertir."
+  }
+];
+
+let quizActual = 0;
+let puntaje = 0;
+let respondidas = new Set();
+
+function renderQuiz() {
+  const container = document.getElementById('quiz-container');
+  const q = quizData[quizActual];
+  container.innerHTML = `
+    <div style="text-align:right;font-size:12px;color:var(--gris);margin-bottom:12px">Pregunta ${quizActual+1} de ${quizData.length}</div>
+    <div class="quiz-card">
+      <div class="quiz-pregunta">${q.pregunta}</div>
+      <div class="quiz-opciones">
+        ${q.opciones.map((op, i) => `
+          <button class="quiz-opcion" onclick="responder(this, ${i}, ${q.correcta}, '${q.feedback.replace(/'/g, "\\'")}')">
+            ${op}
+          </button>
+        `).join('')}
+      </div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <button class="next-q-btn" id="next-q-btn" onclick="siguiente()">
+        ${quizActual < quizData.length - 1 ? '→ Siguiente pregunta' : '🏆 Ver resultado'}
+      </button>
+    </div>
+  `;
+}
+
+function responder(btn, idx, correcta, feedback) {
+  const opciones = btn.parentElement.querySelectorAll('.quiz-opcion');
+  opciones.forEach(b => b.disabled = true);
+
+  if (idx === correcta) {
+    btn.classList.add('correcta');
+    puntaje++;
+    const fb = document.getElementById('quiz-feedback');
+    fb.textContent = feedback;
+    fb.className = 'quiz-feedback correcto';
+  } else {
+    btn.classList.add('incorrecta');
+    opciones[correcta].classList.add('correcta');
+    const fb = document.getElementById('quiz-feedback');
+    fb.innerHTML = `❌ Incorrecto. <br>${feedback.replace('✅ Correcto. ', '')}`;
+    fb.className = 'quiz-feedback incorrecto';
+  }
+
+  document.getElementById('next-q-btn').classList.add('visible');
+}
+
+function siguiente() {
+  quizActual++;
+  if (quizActual >= quizData.length) {
+    document.getElementById('quiz-container').style.display = 'none';
+    const score = document.getElementById('quiz-score');
+    score.classList.add('visible');
+    document.getElementById('score-num').textContent = `${puntaje}/${quizData.length}`;
+  } else {
+    renderQuiz();
+  }
+}
+
+function reiniciarQuiz() {
+  quizActual = 0;
+  puntaje = 0;
+  document.getElementById('quiz-container').style.display = 'block';
+  document.getElementById('quiz-score').classList.remove('visible');
+  renderQuiz();
+}
+
+// =====================
+// CALCULADORA
+// =====================
+function formatCOP(n) {
+  return '$' + Math.round(n).toLocaleString('es-CO');
+}
+
+function updateRent() {
+  const r = document.getElementById('rentabilidad').value;
+  document.getElementById('rent-display').textContent = r + '%';
+  calcular();
+}
+
+function updatePlazo() {
+  const p = document.getElementById('plazo').value;
+  document.getElementById('plazo-display').textContent = p + (p == 1 ? ' año' : ' años');
+  calcular();
+}
+
+function calcular() {
+  const capital = parseFloat(document.getElementById('capital').value) || 0;
+  const rent = parseFloat(document.getElementById('rentabilidad').value) / 100;
+  const plazo = parseInt(document.getElementById('plazo').value);
+  const aporte = parseFloat(document.getElementById('aporte').value) || 0;
+
+  // Interés compuesto + aportes mensuales
+  const r_mensual = Math.pow(1 + rent, 1/12) - 1;
+  const meses = plazo * 12;
+  let total = capital * Math.pow(1 + rent, plazo);
+  // FV de aportes mensuales
+  if (aporte > 0) {
+    total += aporte * ((Math.pow(1 + r_mensual, meses) - 1) / r_mensual);
+  }
+
+  const totalAportes = aporte * meses;
+  const intereses = total - capital - totalAportes;
+
+  document.getElementById('res-capital').textContent = formatCOP(capital);
+  document.getElementById('res-aportes').textContent = formatCOP(totalAportes);
+  document.getElementById('res-intereses').textContent = formatCOP(intereses);
+  document.getElementById('res-total').textContent = formatCOP(total);
+}
+
+// =====================
+// TABS
+// =====================
+function showTab(tab, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+// =====================
+// EXPAND CARDS
+// =====================
+function toggleExpand(btn) {
+  const content = btn.nextElementSibling;
+  content.classList.toggle('open');
+  btn.querySelector('span').textContent = content.classList.contains('open') ? '▴' : '▾';
+}
+
+// =====================
+// PWA INSTALL
+// =====================
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBanner').classList.add('visible');
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      document.getElementById('installBanner').classList.remove('visible');
+    }
+    deferredPrompt = null;
+  }
+});
+
+// =====================
+// INIT
+// =====================
+renderGlosario();
+renderQuiz();
+calcular();
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
